@@ -305,8 +305,7 @@ if (!is_plugin_enabled('profile_manager')) {
                     $this_owner = $vars['entity']->owner_guid;
                     if (!$this_owner)
                         $this_owner = get_loggedin_userid();
-
-                    $access = array(ACCESS_FRIENDS => elgg_echo("access:friends:label"), 1 => elgg_echo("LOGGED_IN"), 2 => elgg_echo("PUBLIC"));
+                    $access = array(($vars['entity']->group_acl ? $vars['entity']->group_acl : ACCESS_PRIVATE) => elgg_echo("access:group:label"), ACCESS_FRIENDS => elgg_echo("access:friends:label"), ACCESS_LOGGED_IN => elgg_echo("LOGGED_IN"), ACCESS_PUBLIC => elgg_echo("PUBLIC"));
                     $collections = get_user_access_collections($this_owner);
                     if (is_array($collections)) {
                         foreach ($collections as $c)

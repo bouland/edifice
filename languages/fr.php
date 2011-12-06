@@ -48,7 +48,8 @@ $french = array(
 
     'edifice:group:current' => 'Catégorie actuelle : ',
     'edifice:group:assigned' => 'La catégorie du groupe ne peut pas être modifiée',
-
+	
+	'access:group:label' => "Groupe",
 
 
 );
