@@ -154,16 +154,20 @@ function get_item_categories($item_guid) {
                 'relationship' => 'filed_in',
                 'relationship_guid' => $item_guid,
                 'inverse_relationship' => false));
-    $level = 0;
+    if($categories)
+    {
+    	$level = 0;
+	     foreach ($categories as $category) {
+	        if ((int) $category->level > $level) {
+	            $level = (int) $category->level;
+	            $result = $category;
+	        }
+	    }
+	    return $result->guid;
 
-    foreach ($categories as $category) {
-        if ((int) $category->level > $level) {
-            $level = (int) $category->level;
-            $result = $category;
-        }
+    }else{
+    	return false;
     }
-
-    return $result->guid;
 }
 
 function delete_all_categories() {
