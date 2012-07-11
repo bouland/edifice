@@ -244,7 +244,7 @@ if (!is_plugin_enabled('profile_manager')) {
                                 foreach ($metadata as $md) {
                                     if (!empty($value))
                                         $value .= ', ';
-                                    $value .= $md->value;
+                                    $value .= $md;
                                 }
                             } else {
                                 $value = $metadata;
